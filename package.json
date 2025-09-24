@@ -8,10 +8,14 @@
     "visualize": "meteor --production --extra-packages bundle-visualizer"
   },
   "dependencies": {
-    "@babel/runtime": "^7.7.6",
-    "chai": "^4.2.0",
-    "jquery": "^3.4.1",
-    "meteor-node-stubs": "^1.0.0"
+    "@babel/runtime": "^7.28.4",
+    "@fortawesome/fontawesome-free": "^7.0.1",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.8",
+    "chai": "^4.5.0",
+    "jquery": "^3.7.1",
+    "meteor-node-stubs": "^1.2.24",
+    "sortablejs": "^1.15.6"
   },
   "meteor": {
     "mainModule": {
