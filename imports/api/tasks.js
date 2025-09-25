@@ -32,7 +32,7 @@ Meteor.methods({
       text,
       createdAt,
       owner: this.userId,
-      hash: SHA512(`${createdAt.getTime()}${text}`),
+      hash: await SHA512(`${createdAt.getTime()}${text}`),
       username: await Meteor.users.findOneAsync(this.userId).username,
     });
   },

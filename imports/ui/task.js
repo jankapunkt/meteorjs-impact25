@@ -7,9 +7,12 @@ Template.task.helpers({
   isOwner () {
     return this.owner === Meteor.userId();
   },
-  isValid () {
+  async isValid () {
     try {
-      return this.hash === SHA512(`${this.createdAt.getTime()}${this.text}`)
+      console.debug('....')
+      console.debug('this', this.hash)
+      console.debug('that', await SHA512(`${this.createdAt.getTime()}${this.text}`))
+      return this.hash === await SHA512(`${this.createdAt.getTime()}${this.text}`)
     } catch (e) {
       console.debug(e)
       return false;
