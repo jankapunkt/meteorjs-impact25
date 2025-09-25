@@ -11,6 +11,9 @@
     </div>
 
     <div class="flex-grow-1 text mx-3 fw-bold {{#if checked}}text-decoration-line-through text-muted{{/if}}">{{username}} {{text}}</div>
+      {{#unless isValid}}
+          {{> icon name="times"}}
+      {{/unless}}
 
       {{! visbility button}}
       {{#if isOwner}}

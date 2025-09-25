@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
+import { SHA512 } from './SHA512'
 
 export const Tasks = new Mongo.Collection('tasks');
 
@@ -26,10 +27,12 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
+    const createdAt = new Date();
     await Tasks.insertAsync({
       text,
-      createdAt: new Date(),
+      createdAt,
       owner: this.userId,
+      hash: SHA512(`${createdAt.getTime()}${text}`),
       username: await Meteor.users.findOneAsync(this.userId).username,
     });
   },
