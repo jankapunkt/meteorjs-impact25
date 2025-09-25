@@ -1,7 +1,13 @@
 <template name="todos">
     <div class="container">
         <header>
-            <h1>{{i18n "list.title"}} ({{incompleteCount}})</h1>
+            <h1>
+                {{#if i18nLoaded}}
+                    {{i18n "list.title"}} ({{incompleteCount}})
+                {{else}}
+                    {{> loading}}
+                {{/if}}
+            </h1>
 
             <div class="d-flex justify-content-between align-items-center">
                 <div class="form-check my-2">
@@ -11,7 +17,11 @@
                            value="">
                     <label class="form-check-label"
                            for="hide-completed-check">
-                        {{i18n "list.hideCompleted"}}
+                        {{#if i18nLoaded}}
+                            {{i18n "list.hideCompleted"}}
+                        {{else}}
+                            {{> loading}}
+                        {{/if}}
                     </label>
                 </div>
                 {{> loginButtons}}
@@ -20,7 +30,7 @@
             {{#if currentUser}}
                 <form class="new-task my-2">
                     <input type="text" name="text"
-                           placeholder="{{i18n "list.typeToAdd"}}"
+                           placeholder="{{#if i18nLoaded}}{{i18n "list.typeToAdd"}}{{/if}}"
                            class="form-control"/>
                 </form>
             {{/if}}

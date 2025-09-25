@@ -1,18 +1,5 @@
 {
   "common": {
     "loading": "Loading..."
-  },
-  "list": {
-    "title": "Todo List",
-    "hideCompleted": "Hide Completed Tasks",
-    "newTodo": "New Task",
-    "typeToAdd": "Type to add new tasks"
-  },
-  "task": {
-    "markComplete": "Mark as completed",
-    "markIncomplete": "Mark as not completed",
-    "makePublic": "Private, click to make public",
-    "makePrivate": "Public, click to make private",
-    "delete": "Delete this task"
   }
 }

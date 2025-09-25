@@ -2,14 +2,20 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import Sortable from 'sortablejs'
-import { Tasks } from '../api/tasks.js';
-import './task.js';
+import { Tasks } from '../../api/tasks.js';
+import { loadI18n } from '../../startup/loadI18n'
+import '../task/task.js';
 import './todos.html';
+import { asyncReactive } from '../utils/asyncReactive'
 
 Template.todos.onCreated(function bodyOnCreated () {
   this.state = new ReactiveDict();
   this.sub = this.subscribe('tasks');
-
+  this.i18nLoaded = asyncReactive(
+    loadI18n({
+      en: () => import('./i18n/en.json')
+    })
+  )
   this.autorun(() => {
     if (this.sub.ready()) {
       this.state.set('subReady', true);
@@ -18,6 +24,9 @@ Template.todos.onCreated(function bodyOnCreated () {
 });
 
 Template.todos.helpers({
+  i18nLoaded () {
+    return Template.instance().i18nLoaded.get()
+  },
   tasks () {
     const instance = Template.instance();
     if (instance.state.get('hideCompleted')) {

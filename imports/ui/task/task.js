@@ -1,9 +1,18 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { SHA512 } from '../api/SHA512'
+import { SHA512 } from '../../api/SHA512'
 import './task.html';
+import { loadI18n } from '../../startup/loadI18n'
+import { asyncReactive } from '../utils/asyncReactive'
+
+const i18nLoaded = asyncReactive(loadI18n({
+  en: () => import('./i18n/en.json'),
+}))
 
 Template.task.helpers({
+  loadComplete() {
+    return i18nLoaded.get();
+  },
   isOwner () {
     return this.owner === Meteor.userId();
   },
