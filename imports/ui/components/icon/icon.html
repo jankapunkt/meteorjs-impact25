@@ -1,5 +1,5 @@
 <template name="icon">
-    <span>
-        <i class="fa fa-{{name}} {{#if pulse}}fa-pulse{{/if}} {{#if spin}}fa-spin{{/if}} {{#if class}}{{class}}{{/if}}"></i>
-    </span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="{{viewBox}}" class="svg-root icon {{classnames}}" fill="currentColor">
+        <path d="{{path}}"></path>
+    </svg>
 </template>

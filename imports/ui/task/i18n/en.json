@@ -1,0 +1,9 @@
+{
+  "task": {
+    "markComplete": "Mark as completed",
+    "markIncomplete": "Mark as not completed",
+    "makePublic": "Private, click to make public",
+    "makePrivate": "Public, click to make private",
+    "delete": "Delete this task"
+  }
+}
