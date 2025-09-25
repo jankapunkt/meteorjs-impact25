@@ -27,3 +27,4 @@ meteortesting:mocha
 
 # ADDTIONAL
 ostrio:i18n
+jkuester:template-loader
