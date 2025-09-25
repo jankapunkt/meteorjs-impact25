@@ -6,10 +6,20 @@ This is the foundation for our workshop at MeteorJs Impact 2025!
 
 Make sure you have Meteor release 3.3.2 installed.
 
-Then clone this repository and install the dependencies:
-
+Then clone the repository via ssh
 ```shell
 git clone git@github.com:jankapunkt/meteorjs-impact25.git
+``` 
+
+or if you prefer https
+
+```shell
+git clone https://github.com/jankapunkt/meteorjs-impact25.git
+```
+
+Then navigate into the folder and install dependencies
+
+```shell
 cd meteorjs-impact25
 meteor npm install
 meteor
